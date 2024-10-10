@@ -5,7 +5,7 @@
 
 > [!IMPORTANT]
 >
-> - You\'ll want to read this **entire document** before beginning the
+> - You'll want to read this **entire document** before beginning the
 >   project. Please ask any questions you have on Piazza, but only if
 >   this README does not answer your question.
 > - Do **NOT** open any of the projects in a windows operating system.
@@ -138,7 +138,7 @@ the total number of chars in this file is provided to you in the
 `input_chars_size` variable. The input file is simply a text file that
 contains nothing but the 26 lower case letters (i.e., a-z). There are no
 white spaces, line breaks, return characters or other characters. While
-you don\'t need to parse the input file, you need to know the format so
+you don't need to parse the input file, you need to know the format so
 that you can prepare your own test inputs. Example input:
 
 - Input file content: `aaeeoooooeee`
@@ -286,17 +286,17 @@ We will be grading your code based on:
 > either pass, or fail, each individual test. There is no in-between)
 >
 > Lastly, if your program crashes during execution, it will be considered
-> \"incorrect\", _regardless of whether it produces the correct output
+> "incorrect", _regardless of whether it produces the correct output
 > file_. Due to this it is **VITAL** that all memory issues are taken care
 > of as these can cause code to crash. It is possible to have memory
-> issues even when you don\'t call malloc especially in this project where
+> issues even when you don't call malloc especially in this project where
 > memory is being divided up for the threads!
 
 ### Performance Measurement
 
 - To test whether your program properly AND efficiently use threads, we will
   run your program with large test files (e.g. `test/input_large`). We will
-  use the following formula to evaluate the \'parallel efficiency\', i.e.,
+  use the following formula to evaluate the 'parallel efficiency', i.e.,
   $\text{PE}$, of your code:
 
   $$\text{PE} = \frac{\text{CPU Time (User)} + \text{CPU Time (System)}}{\text{Wall time} \cdot \text{Number of threads}}$$
@@ -382,11 +382,11 @@ suggest you establish the following workflow:
 - Either use vim/emacs on Isengard or push/pull on your local Docker
   image to fix problems and continue development.
 
-We STRONGLY discourage you connecting VSCode to Isengard via the ssh
-plugin. VSCode runs linters and syntax checks on Isengard, which in turn
+We STRONGLY discourage you connecting VS Code to Isengard via the ssh
+plugin. VS Code runs linters and syntax checks on Isengard, which in turn
 puts heavy pressure on Isengard. We had severe performance problems in
 the past, especially in the last two days of submissions. Therefore do
-as much development as you can locally. We won\'t be able to help you if
+as much development as you can locally. We won't be able to help you if
 you leave Isengard testing to the last days and if Isengard becomes too
 crowded.
 
@@ -418,7 +418,7 @@ Submission of your project will be handled via **Gradescope**.
 - You should handle errors gracefully. All system calls can fail: if
   this occurs print a relavent and descriptive error to `stderr`
   (_not_ `stdout`) and exit. Your program should have a non-zero exit
-  status if any errors are encountered. (Make sure to add \'n\'s to
+  status if any errors are encountered. (Make sure to add 'n's to
   those errors too!)
 - Your program should have a zero exit status if no errors are
   encountered.
@@ -484,6 +484,17 @@ Provided for you are three reference executable files:
   since the performance of your development machine will vary. Use
   Isengard binary on Isengard to compare your performance to the solution.
 
+## Tips
+
+### 1: Use the VS Code workspace
+
+If you're using VS Code (which we recommend), you can open the
+[`project-3.code-workspace`](project-3.code-workspace) file and click
+the `Open Workspace` button. This will open the project in a new window
+with the recommended settings. We've also included a debug configuration,
+allowing you to debug your program - all you need to do is go to the
+debug tab and click the green play button.
+
 ## Collaboration Policy
 
 This is an **individual project**. All code you submit should be written
@@ -493,7 +504,10 @@ Please see the syllabus for the full collaboration policy.
 
 > [!WARNING]
 >
-> Plagarism will be punished harshly!\*\*
+> **Plagarism will be punished harshly!**
+
+Please do keep any Git repos private, even after you finish this course.
+This will keep the project fun for future students!
 
 ## Access to Isengard
 
