@@ -15,8 +15,6 @@
 >   wait until a few days before the due date, you are unlikely to finish
 >   in time.
 
-See Canvas for the project due date.
-
 ## Learning Objectives
 
 - Understand how to use multiple threads to finish a computational task
