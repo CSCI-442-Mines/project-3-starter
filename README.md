@@ -320,8 +320,7 @@ We will be grading your code based on:
   than $0.75$.
 
 - Your program is expected to run the command above on Isengard under
-  1.5 seconds ($\text{Wall time} < 1.5$) with a pe greater than 0.5
-  ($\text{PE} > 0.5$).
+  1.5 seconds ($\text{Wall time} < 1.5$) with a ($\text{PE} > 0.5$).
 
 > [!IMPORTANT]
 >
