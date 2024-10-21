@@ -7,6 +7,9 @@
 /pzip
 /pzip.*
 
+# Submission
+*.zip
+
 # Prerequisites
 *.d
 
