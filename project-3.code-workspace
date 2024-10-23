@@ -69,6 +69,10 @@
       }
     ]
   },
+  "settings": {
+    "C_Cpp.default.cStandard": "gnu17",
+    "C_Cpp.default.cppStandard": "gnu++17",
+  },
   "tasks": {
     "version": "2.0.0",
     "tasks": [
