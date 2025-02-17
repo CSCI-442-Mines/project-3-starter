@@ -16,8 +16,8 @@
  *
  * Outputs:
  * @zipped_chars:       The array of zipped_char structs
- * @zipped_chars_count:   The total count of inserted elements into the zippedChars array.
- * @char_frequency[26]: Total number of occurences
+ * @zipped_chars_count:   The total count of inserted elements into the zipped_chars array
+ * @char_frequency: Total number of occurences
  *
  * NOTE: All outputs are already allocated. DO NOT MALLOC or REASSIGN THEM !!!
  *
@@ -26,6 +26,6 @@ void pzip(int n_threads, char *input_chars, int input_chars_size,
 	  struct zipped_char *zipped_chars, int *zipped_chars_count,
 	  int *char_frequency)
 {
-	printf ("TODO: Start from here!\n");
+	printf("TODO: Start from here!\n");
 	exit(1);
 }

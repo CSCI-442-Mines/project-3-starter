@@ -99,8 +99,9 @@ located in the root of your repository. The usage is as follows:
   same letter appears three times in the portion processed by the
   second thread. In the final output, rather than counting `s` for 5
   times, we have two counts of it, which are 2 and 3, respectively.
-- The number of the same character in a row will not exceed 255 (i.e.,
-  the maximum value of a `uint8_t`)
+- The input file is assumed to have no more than 255 consecutive
+  occurrences of the same character (i.e., the maximum value of a
+  `uint8_t`).
 
 ## What is implemented for you?
 
@@ -311,38 +312,38 @@ We will be grading your code based on:
 ./measure.py ./pzip /tmp/CSCI-442--DO-NOT-DELETE/input_huge ./out 8
 ```
 
+> [!IMPORTANT]
+>
+> `/tmp/CSCI-442--DO-NOT-DELETE/input_huge` can be found on the Isengard (and,
+> by extension, the CTLM B60 machines). Feel free to run the above command on
+> those machines and/or copy `input_huge` to your local machine (Though do be
+> aware that, as the name implies, it is quite large at 1, GB so it may take a
+> while to copy).
+
 ### Performance Criteria
 
-- On Isengard, our ideal solution for the parameters in the above
-  command runs under 1 second ($\text{Wall time} < 1$) with a $\text{PE}$ greater
-  than $0.75$.
+- In the Gradescope autograder, our ideal solution for the parameters in the
+  above command runs under 1 second ($\text{Wall time} < 1$) with a $\text{PE}$
+  greater than $0.75$.
 
-- Your program is expected to run the command above on Isengard under
-  1.5 seconds ($\text{Wall time} < 1.5$) with a ($\text{PE} > 0.5$).
+- Your program is expected to run the command above in the Gradescope
+  autograder in under 1.5 seconds ($\text{Wall time} < 1.5$) with a
+  ($\text{PE} > 0.5$).
 
 > [!IMPORTANT]
 >
-> - Please note that these values are valid only for the input
->   file referenced above
->   (`/tmp/CSCI-442--DO-NOT-DELETE/input_huge`) and with
->   `N_THREADS=8` on Isengard.
 > - Your first run may be slower due to internal page caching.
->   Within the grading script, your code will be run three times
+>   Within the grading script, your code will be run several times
 >   and only the fastest one will be used for grading.
-> - Note: If you have a $\text{Wall time} < 0.25$, then your PE does
->   not need to meet the requirement of $> 0.5$.
-
-- If your code fails to meet the performance criteria above, you will
-  get a partial grade, depending on how fast and efficient your code
-  is.
-
-> [!IMPORTANT]
->
-> - Reminder: you will receive **NO** performance points if your
+> - If you have a $\text{Wall time} \leq 0.25$, then your PE does not
+>   need to meet the requirement of $> 0.5$.
+> - If your code fails to meet the performance criteria above, you will
+>   get a partial grade, depending on how fast and efficient your code
+>   is.
+> - You will receive **NO** performance points if your
 >   program does not produce the correct output or crashes.
-
-- **The top three fastest and correct submissions will be given +3, +2
-  and +1 extra points, respectively.**
+> - **The top three fastest and correct submissions will be given +3, +2
+>   and +1 extra points, respectively.**
 
 ### Testing Input Huge
 
@@ -368,27 +369,16 @@ correct solution only some of the time. Memory issues are able to make
 your code output the correct output on some runs but incorrect output on
 other runs.
 
-## Development Workflow
+## Isengard - Tragedy of the Commons
 
-The performance criteria given above is based on the execution on
-`isengard.mines.edu`. However, due to limited capacity of Isengard, we
-suggest you establish the following workflow:
-
-- As with prior projects, do the initial development on your local
-  Docker image.
-- Once you complete the initial functionality, push your changes to
-  github.
-- Pull your repo on isengard and test for performance.
-- Either use vim/emacs on Isengard or push/pull on your local Docker
-  image to fix problems and continue development.
-
-We STRONGLY discourage you connecting VS Code to Isengard via the ssh
+We **STRONGLY** discourage you from connecting VS Code to Isengard via the SSH
 plugin. VS Code runs linters and syntax checks on Isengard, which in turn
-puts heavy pressure on Isengard. We had severe performance problems in
-the past, especially in the last two days of submissions. Therefore do
-as much development as you can locally. We won't be able to help you if
-you leave Isengard testing to the last days and if Isengard becomes too
-crowded.
+substantially slows down Isengard. We have had severe performance problems in
+the past, especially in the two days leading up to the deadline. Therefore, we
+encourage you to avoid Isengard for development and testing, instead testing it
+locally, and only using Isengard for final performance testing before
+submitting. We won't be able to help you if you leave Isengard testing to the
+final days before the deadline and Isengard becomes too crowded.
 
 ## Submission Information
 
@@ -413,8 +403,7 @@ Submission of your project will be handled via **Gradescope**.
 
 ## General Requirements
 
-- You are **REQUIRED** to use Isengard to develop and test this
-  project.
+- You are required to use the Docker environment you set up in Project
 - You should handle errors gracefully. All system calls can fail: if
   this occurs print a relavent and descriptive error to `stderr`
   (_not_ `stdout`) and exit. Your program should have a non-zero exit
@@ -422,8 +411,10 @@ Submission of your project will be handled via **Gradescope**.
   those errors too!)
 - Your program should have a zero exit status if no errors are
   encountered.
-- Your project must be written in the C programming language, and
-  execute on Isengard.
+- Your code must be written using only the C programming language. Do
+  not extend using additional languages. The exception is for the
+  Makefile for your project, which is already sufficient for this
+  project.
 - You should follow [Linux Kernel coding
   style](https://www.kernel.org/doc/html/v5.8/process/coding-style.html),
   a common style guide for open-source C projects.
@@ -478,11 +469,15 @@ Provided for you are three reference executable files:
     own code. You will recieve a zero if you do!
 
 - `pzip_instructor_arm` and `pzip_instructor_x86`: These binaries are the
-  solutions compiled for the docker images you are working on. You may use
+  solutions compiled for the Docker images you are working on. You may use
   these binaries to make sure that your code is functionally working
-  probably. Please do not use docker binaries for performance evaluation,
-  since the performance of your development machine will vary. Use
-  Isengard binary on Isengard to compare your performance to the solution.
+  probably.
+
+> [!WARNING]
+>
+> Please do not use the instructor's solution for performance evaluation, since
+> the performance of your development machine will vary. Use the Isengard binary
+> on Isengard to compare your performance to the solution.
 
 ## Tips
 
