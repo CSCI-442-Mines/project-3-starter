@@ -6,9 +6,11 @@ Measure the performance of a project 3 pzip binary
 
 from argparse import ArgumentParser
 from dataclasses import dataclass
-from resource import getrusage as resource_usage, RUSAGE_CHILDREN
+from resource import RUSAGE_CHILDREN
+from resource import getrusage as resource_usage
 from subprocess import run
 from time import time as timestamp
+
 
 @dataclass
 class Performance:
@@ -38,7 +40,7 @@ class Performance:
 
 
 def measure_performance(
-    binary: str, input: str, output: str, threads: int
+    binary_path: str, input_path: str, output_path: str, threads: int
 ) -> Performance:
     """
     Measure the performance of a project 3 submission
@@ -48,7 +50,7 @@ def measure_performance(
     start_time, start_resources = timestamp(), resource_usage(RUSAGE_CHILDREN)
 
     # Run the binary
-    run_result = run([binary, input, output, str(threads)])
+    run_result = run([binary_path, input_path, output_path, str(threads)], check=True)
 
     if run_result.returncode != 0:
         print(f"Execution failed with error code {run_result.returncode}")
@@ -67,8 +69,13 @@ def measure_performance(
 
 
 def main():
+    """
+    Main function
+    """
     # Parse arguments
-    parser = ArgumentParser(description="Measure the performance of a project 3 pzip binary")
+    parser = ArgumentParser(
+        description="Measure the performance of a project 3 pzip binary"
+    )
     parser.add_argument("binary", type=str, help="Path of the binary to measure")
     parser.add_argument("input", type=str, help="Path of input file")
     parser.add_argument("output", type=str, help="Path to save output to")
@@ -77,7 +84,9 @@ def main():
     args = parser.parse_args()
 
     # Measure performance
-    performance = measure_performance(args.binary, args.input, args.output, args.threads)
+    performance = measure_performance(
+        args.binary, args.input, args.output, args.threads
+    )
 
     # Print
     print(f"Wall time: {performance.wall_time:.5f} seconds")

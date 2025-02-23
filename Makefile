@@ -81,6 +81,15 @@ $(OUTDIR)/debug/%.o: %.c
 $(OUTDIR)/release/%.o: %.c
 	$(call cmd,c_to_o)
 
+# Run the end to end (e2e) tests.
+e2e-tests: $(BINS_debug)
+	@./utils/e2e-tests.sh
+
 .PHONY: clean
 clean:
 	$(call cmd,clean,$(OUTDIR) $(BINS_debug) $(BINS_release))
+
+# Make the submission archive.
+submission: all
+	@read -p "Enter your Mines multipass username: " USERNAME && \
+	zip -r "$${USERNAME}-submission.zip" ./Makefile ./include ./mains ./src ./override.token

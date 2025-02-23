@@ -19,8 +19,8 @@
         "request": "launch",
         "program": "${workspaceFolder}/pzip.debug",
         "args": [
-          "${workspaceFolder}/test/input_${input:inputName}",
-          "${workspaceFolder}/test/output_${input:inputName}_${input:nThreads}t.actual",
+          "${workspaceFolder}/tests/input/${input:inputName}",
+          "${workspaceFolder}/tests/output/${input:inputName}/${input:nThreads}.actual",
           "${input:nThreads}"
         ],
         "stopAtEntry": false,
@@ -106,46 +106,6 @@
         },
         "group": "build"
       },
-      {
-        "label": "Diff",
-        "command": "bash",
-        "args": [
-          "-c",
-          "(diff --label \"Expected output\" --label \"Actual output\" --new-file --unified <(xxd ${workspaceFolder}/test/output_${input:inputName}_${input:nThreads}t.expected) <(xxd ${workspaceFolder}/test/output_${input:inputName}_${input:nThreads}t.actual) && echo \"${workspaceFolder}/test/output_${input:inputName}_${input:nThreads}t.expected and ${workspaceFolder}/test/output_${input:inputName}_${input:nThreads}t.actual match!\") > ${workspaceFolder}/test/output_${input:inputName}_${input:nThreads}t.diff"
-        ],
-        "type": "shell",
-        "problemMatcher": [
-          "$tsc"
-        ],
-        "presentation": {
-          "reveal": "always"
-        },
-        "group": "build"
-      },
-    ],
-    "inputs": [
-      {
-        "id": "inputName",
-        "type": "pickString",
-        "description": "Input name",
-        "options": [
-          "tiny",
-          "small",
-          "large",
-        ],
-        "default": "tiny"
-      },
-      {
-        "id": "nThreads",
-        "type": "pickString",
-        "description": "Number of threads",
-        "options": [
-          "2",
-          "4",
-          "8"
-        ],
-        "default": "2"
-      }
     ]
   }
 }
