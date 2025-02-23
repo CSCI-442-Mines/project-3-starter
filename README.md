@@ -1,6 +1,8 @@
 # CSCI-442 Project 3: Parallel Zip
 
-> [!WARNING] Please see the assignment on Canvas for dates.
+> [!WARNING]
+>
+> Please see the assignment on Canvas for dates.
 
 > [!IMPORTANT]
 >
@@ -204,7 +206,9 @@ struct zipped_char* zipped_chars = {{'a',3},{'a','3'},{'a',3},{'a',3}};
 - Binary output file (in hexa-decimal): `61 03 61 03 61 03 61 03`
 - Text (--debug) output file (in plain text, new lines are ommitted): `a 3 a 3 a 3 a 3`
 
-> [!WARNING] Note that the zipped output file is not fully compressed. In example 1, the zipped
+> [!WARNING]
+>
+> Note that the zipped output file is not fully compressed. In example 1, the zipped
 > chars could have been determined as `{{'a',2},{'e','2'},{'o',5},{'e',3}};`. However, for the sake
 > of simplicity for the project, we do not ask parallel threads to talk to each other and merge
 > their output. You are not asked to implement this functionality, and your program may not pass our
@@ -233,7 +237,9 @@ We will be grading your code based on:
 
   Your program should follow the non-project-specific general requirements indicated below.
 
-> [!WARNING] You will **NOT** receive performance points if your code is not correct. Slow, but
+> [!WARNING]
+>
+> You will **NOT** receive performance points if your code is not correct. Slow, but
 > correct programs are **always** more valuable than fast, incorrect programs, and this is reflected
 > in the grading of this project. But also keep in mind that the autograder has a 5 minute timeout
 > as none of the test cases should take longer than that to complete (even input-huge).
@@ -254,10 +260,7 @@ We will be grading your code based on:
   large test files (e.g. `tests/input/large`). We will use the following formula to evaluate the
   'parallel efficiency', i.e., $\text{PE}$, of your code:
 
-  $$
-  \text{PE} = \frac{\text{CPU Time (User)} + \text{CPU Time (System)}}{\text{Wall time} \cdot
-  \text{Number of threads}}
-  $$
+  $$\text{PE} = \frac{\text{CPU Time (User)} + \text{CPU Time (System)}}{\text{Wall time} \cdot \text{Number of threads}}$$
 
 - In a perfectly parallel program, $\text{PE}$ should be equal to $1.0$, however this is never
   possible. Actual parallel efficiency will be less than $1.0$. To measure the $\text{PE}$ of your
@@ -343,7 +346,9 @@ make submission
 3.  Submit this `.zip` file to Gradescope. You will get a confirmation email if you did this
     correctly.
 
-> [!WARNING] You are **REQUIRED** to use `make submission` to form the `.zip` file. Failure to do so
+> [!WARNING]
+>
+> You are **REQUIRED** to use `make submission` to form the `.zip` file. Failure to do so
 > may cause your program to not compile on Gradescope.
 
 ## General Requirements
