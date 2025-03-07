@@ -356,7 +356,7 @@ make submission
 - You are required to use the Docker environment you set up in Project
 - You should handle errors gracefully. All system calls can fail: if this occurs print a relavent
   and descriptive error to `stderr` (_not_ `stdout`) and exit. Your program should have a non-zero
-  exit status if any errors are encountered. (Make sure to add 'n's to those errors too!)
+  exit status if any errors are encountered. (Make sure to add `\n`'s to those errors too!)
 - Your program should have a zero exit status if no errors are encountered.
 - Your code must be written using only the C programming language. Do not extend using additional
   languages. The exception is for the Makefile for your project, which is already sufficient for
