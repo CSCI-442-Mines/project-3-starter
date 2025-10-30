@@ -27,5 +27,4 @@ void pzip(int n_threads, char *input_chars, int input_chars_size,
 	  int *char_frequency)
 {
 	printf("TODO: Start from here!\n");
-	exit(1);
 }
